@@ -1,58 +1,58 @@
-import { axiosInstance } from ".";
+import {axiosInstance} from './index'
 
-export const addShow = async (payload) => {
-    try{
-        const response = await axiosInstance.post('/api/shows/add-show', payload);
-        return response.data;
-    }catch(err){
-        return err.message;
-    }
-}
 
-export const updateShow = async (payload) => {    
-    try{
-        const response = await axiosInstance.put('/api/shows/update-show', payload);
-        console.log(payload, response)
-        return response.data;
-    }catch(err){
-        return err.response;
-    }
-}
 
-export const getShowsByTheatre = async (payload) => {
-    try{
-        const response = await axiosInstance.post('/api/shows/get-all-shows-by-theatre', payload);
-        return response.data;
-    }catch(err){
-        return err.response;
+//get all Movies
+export const getAllMovies = async ()=> {
+    try {
+        const response = await axiosInstance.get('api/movies/get-all-movies')
+       return response.data
+    } catch (error) {
+        console.error(error)
     }
+    
 }
 
 
 
-export const deleteShow = async (payload) => {
+// Add a movie
+
+export const addMovie = async (values)=> {
+    try {
+        const response = await axiosInstance.post('api/movies/add-movie' , values)
+       return response.data
+    } catch (error) {
+        console.error(error)
+    }
+    
+}
+
+
+export const updateMovie = async (payload) => {
     try{
-        const response = await axiosInstance.post('/api/shows/delete-show', payload);
+        const response = await axiosInstance.put('/api/movies/update-movie', payload);
         return response.data;
     }catch(err){
-        return err.response;
+        return err.message
     }
 }
 
-export const getAllTheatresByMovie = async (payload) => {
+// Delete a movie
+export const deleteMovie = async (payload) => {
     try{
-        const response = await axiosInstance.post('/api/shows/get-all-theatres-by-movie', payload);
+        const response = await axiosInstance.put('/api/movies/delete-movie', payload);
         return response.data;
     }catch(err){
-        return err.response;
+        return err.message
     }
 }
 
-export const getShowById = async (payload) => {
+// Get a single movie by its id
+export const getMovieById = async (id) => {
     try{
-        const response = await axiosInstance.post('/api/shows/get-show-by-id', payload);
+        const response = await axiosInstance.get(`/api/movies/movie/${id}`)
         return response.data;
     }catch(err){
-        return err.message;
+        return err.response
     }
 }

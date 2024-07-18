@@ -48,4 +48,3 @@ export const deleteTheatre = async (payload) => {
         return err.response;
     }
 }
-

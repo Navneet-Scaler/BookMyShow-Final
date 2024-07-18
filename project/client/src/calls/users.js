@@ -54,15 +54,3 @@ export const ResetPassword = async (value) => {
         console.log(error);
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
